@@ -1,0 +1,28 @@
+{
+    "name": "absalomedia/grav-theme-purity",
+    "type": "grav-theme",
+    "description": "Purity: Pure CSS from Yahoo into Grav, with customised options for menu design & control",
+    "keywords": ["theme","grav", "purity", "imperfect"],
+    "homepage": "http://www.absalom.biz",
+    "license": "BSD-2-Clause",
+    "support": {
+        "issues": "https://github.com/absalomedia/grav-theme-purity/issues"
+    },
+    "authors": [
+        {
+            "name": "Lawrence Meckan",
+            "email": "media@absalom.biz",
+            "homepage": "http://www.absalom.biz"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "composer/installers": "~1.0"
+    },
+    "extra": {
+        "installer-name": "purity",
+        "installer-paths": {
+            "user/themes/{$name}/": ["absalomedia/grav-theme-purity"]
+        }
+    }
+}

@@ -1,0 +1,36 @@
+name: Purity
+version: 0.5.0
+description: "Purity: Pure CSS from Yahoo into Grav, with customised options for menu design & control."
+icon: group
+author:
+  name: Lawrence Meckan
+  email: media@absalom.biz
+  url: http://www.absalom.biz
+homepage: https://github.com/absalomedia/grav-theme-purity
+keywords: purity, purecss, yahoo, minimalist, theme, modern, fast, responsive, html5, css3, blog, marketing
+bugs: https://github.com/absalomedia/grav-theme-purity/issues
+license: BSD-2-Clause
+
+
+
+form:
+  validation: loose
+  fields:
+    dropdown.enabled:
+        type: toggle
+        label: Dropdown in navbar
+        highlight: 1
+        default: 0
+        options:
+          1: Enabled
+          0: Disabled
+        validate:
+          type: bool
+    
+  menu:
+        type: text
+        size: medium
+        label: Menu
+        default: 'blog'
+        validate:
+          type: text

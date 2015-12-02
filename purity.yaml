@@ -1,0 +1,9 @@
+enabled: true
+menu: blog
+
+streams:
+  scheme:
+    theme:
+      type: ReadOnlyStream
+      paths:
+        - user/themes/purity
