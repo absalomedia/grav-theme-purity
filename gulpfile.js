@@ -63,6 +63,7 @@ gulp.task('styles', function() {
   return gulp.src([
     'scss/pure.scss'
   ])
+     .pipe(grunt-build)
     // Generate Source Maps
     .pipe($.sourcemaps.init())
     .pipe($.sass({

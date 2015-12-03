@@ -77,7 +77,7 @@ grunt.initConfig({
     observe: {
         src: {
             files: 'scss/pure/src/**/css/*.css',
-            tasks: ['test', 'suppress', 'build'],
+            tasks: ['test', 'suppress', 'grunt-build'],
 
             options: {
                 interrupt: true
@@ -100,7 +100,7 @@ grunt.loadNpmTasks('grunt-css-selectors');
 grunt.loadNpmTasks('grunt-pure-grids');
 
 // Local tasks.
-grunt.loadTasks('tasks/');
+grunt.loadTasks('');
 
 grunt.registerTask('default', ['test', 'grunt-build']);
 grunt.registerTask('test', ['csslint']);
