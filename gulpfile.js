@@ -8,6 +8,8 @@
 
 // Include Gulp & Tools We'll Use
 var gulp = require('gulp');
+// Add Grunt tasks for Pure
+require('gulp-grunt')(gulp);
 var fs = require('fs');
 var merge = require('merge-stream');
 var $ = require('gulp-load-plugins')();
