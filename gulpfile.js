@@ -74,12 +74,10 @@ gulp.task('styles', function() {
     .pipe(gulp.dest('.tmp'))
     // Concatenate Styles
     .pipe($.concat('pure.css'))
-    .pipe($.header(banner, {pkg: pkg}))
     .pipe(gulp.dest('./css'))
     // Minify Styles
     .pipe($.if('*.css', $.csso()))
     .pipe($.concat('pure.min.css'))
-    .pipe($.header(banner, {pkg: pkg}))
     .pipe($.sourcemaps.write('./'))
     .pipe(gulp.dest('./css'))
     .pipe($.size({title: 'styles'}));
@@ -96,7 +94,7 @@ gulp.task('metadata', function() {
 });
 
 // Build Production Files, the Default Task
-gulp.task('default', ['clean', 'mocha'], function(cb) {
+gulp.task('default', ['clean'], function(cb) {
   runSequence(
     ['styles'],
     cb);
