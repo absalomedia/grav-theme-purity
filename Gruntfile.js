@@ -63,8 +63,8 @@ grunt.initConfig({
 
     css_selectors: {
         base: {
-            src : 'scss/pure/src/base.css',
-            dest: 'build/base/base-context.css',
+            src : 'scss/pure/src/base/css/base.css',
+            dest: 'build/base/base.css',
 
             options: {
                 mutations: [{prefix: '.pure'}]
@@ -100,7 +100,7 @@ grunt.loadNpmTasks('grunt-css-selectors');
 grunt.loadNpmTasks('grunt-pure-grids');
 
 // Local tasks.
-grunt.loadTasks('');
+grunt.loadTasks('/tasks');
 
 grunt.registerTask('default', ['test', 'grunt-build']);
 grunt.registerTask('test', ['csslint']);

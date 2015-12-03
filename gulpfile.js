@@ -8,8 +8,6 @@
 
 // Include Gulp & Tools We'll Use
 var gulp = require('gulp');
-// Add Grunt tasks for Pure
-require('gulp-grunt')(gulp);
 var fs = require('fs');
 var merge = require('merge-stream');
 var $ = require('gulp-load-plugins')();
@@ -63,8 +61,7 @@ gulp.task('styles', function() {
   return gulp.src([
     'scss/pure.scss'
   ])
-     .pipe(grunt-build)
-    // Generate Source Maps
+     // Generate Source Maps
     .pipe($.sourcemaps.init())
     .pipe($.sass({
       precision: 10,
