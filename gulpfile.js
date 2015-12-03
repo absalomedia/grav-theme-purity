@@ -78,7 +78,7 @@ gulp.task('styles', function() {
     .pipe(gulp.dest('./css'))
     // Minify Styles
     .pipe($.if('*.css', $.csso()))
-    .pipe($.concat('pure-min.css'))
+    .pipe($.concat('pure.min.css'))
     .pipe($.header(banner, {pkg: pkg}))
     .pipe($.sourcemaps.write('./'))
     .pipe(gulp.dest('./css'))
@@ -143,6 +143,23 @@ function watch() {
 /**
  * Serves the landing page from "out" directory.
  */
+gulp.task('serve:browsersync', function() {
+  browserSync({
+    notify: false,
+    server: {
+      baseDir: ['dist']
+    }
+  });
+
+  watch();
+});
+
+gulp.task('serve', function() {
+  $.connect.server({
+    root: 'dist',
+    port: 5000,
+    livereload: true
+  });
 
   watch();
 
@@ -151,7 +168,7 @@ function watch() {
 });
 
 // Generate release archive containing just JS, CSS, Source Map deps
-gulp.task('zip', function() {
+gulp.task('zip:pure', function() {
   return gulp.src(['dist/pure?(.min)@(.js|.css)?(.map)', 'LICENSE', 'bower.json', 'package.json'])
     .pipe($.zip('pure.zip'))
     .pipe(gulp.dest('dist'));
@@ -175,4 +192,12 @@ var fileFilter = $.filter([
   'bower.json',
   'package.json']);
 
+gulp.task('zip', ['zip:pure']);
 
+gulp.task('genCodeFiles', function() {
+  return gulp.src(['dist/pure.*@(js|css)?(.map)', 'dist/pure.zip', 'dist/mdl-templates.zip'],
+      {read: false})
+    .pipe($.tap(function(file, t) {
+      codeFiles += ' dist/' + path.basename(file.path);
+    }));
+});
