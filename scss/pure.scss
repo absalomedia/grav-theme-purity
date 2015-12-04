@@ -6,12 +6,13 @@
 // Components
 @import "normalize/normalize";
 @import "build/base/base";
+@import "pure/src/grids/css/grids-core";
+@import "build/grids/grids-units";
+@import "build/grids/grids-responsive";
 @import "pure/src/buttons/css/buttons";
 @import "pure/src/buttons/css/buttons-core";
 @import "pure/src/forms/css/forms";
 @import "pure/src/forms/css/forms-r";
-@import "build/grids/grids-units";
-@import "build/grids/grids-responsive";
 @import "pure/src/menus/css/menus-core";
 @import "pure/src/menus/css/menus-dropdown";
 @import "pure/src/menus/css/menus-horizontal";
