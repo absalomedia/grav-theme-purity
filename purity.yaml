@@ -1,6 +1,6 @@
 enabled: true
-menu: blog
-type: dark
+type: blog
+style: dark
 
 streams:
   scheme:

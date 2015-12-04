@@ -1,8 +1,8 @@
 {
     "name": "absalomedia/grav-theme-purity",
     "type": "grav-theme",
-    "description": "Purity: Pure CSS from Yahoo into Grav, with customised options for menu design & control",
-    "keywords": ["theme","grav", "purity", "imperfect"],
+    "description": "Purity: Pure CSS from Yahoo ported into Grav, with customised options for theme colours, menu design & layout control.",
+    "keywords": ["theme","grav", "purity", "yahoo", "pure", "lightweight"],
     "homepage": "http://www.absalom.biz",
     "license": "BSD-2-Clause",
     "support": {
