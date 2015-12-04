@@ -6,13 +6,13 @@
             {% include 'partials/navigation.html.twig' %}
             <nav class="nav">
                 <ul class="icons">
-                 <li><a href="#" class="fa-twitter"><span class="label">Twitter</span></a></li>
-                 <li><a href="#" class="fa-facebook"><span class="label">Facebook</span></a></li>
-                 <li><a href="#" class="fa-instagram"><span class="label">Instagram</span></a></li>
+                 <li><a href="#" class="fa fa-twitter"><span class="label">Twitter</span></a></li>
+                 <li><a href="#" class="fa fa-facebook"><span class="label">Facebook</span></a></li>
+                 <li><a href="#" class="fa fa-instagram"><span class="label">Instagram</span></a></li>
                  {% if config.plugins.feed.enabled %}
-                 <li><a href="{{ feed_url }}.rss" class="fa-rss"><span class="label">RSS</span></a></li>
+                 <li><a href="{{ feed_url }}.rss" class="fa fa-rss"><span class="label">RSS</span></a></li>
                  {% endif %}
-                <li><a href="#" class="fa-envelope"><span class="label">Email</span></a></li>
+                <li><a href="#" class="fa fa-envelope"><span class="label">Email</span></a></li>
                 </ul>
                 <p class="copyright">&copy; {{ "now"|date("Y") }} {{ site.author.name }}. </p>
             </nav>
