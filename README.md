@@ -20,6 +20,15 @@ Installing the Purity theme can be done in one of two ways. Our GPM (Grav Packag
 
 The theme by itself is useful, but you may have an easier time getting up and running by installing a skeleton. A skeleton is being developed in due course.
 
+# Customising core CSS
+
+Purity runs a combination of Grunt & Gulp to build the latest bleeding edge edition of Yahoo's [Pure CSS](http://www.purecss.io). The process is fairly simple. Once Node, Gulp & Grunt have been installed inside /your/site/grav/user/themes/purity, run:
+
+	grunt
+	gulp
+
+This will build a brand new pure.min.css file inside /your/site/grav/user/themes/purity/css
+
 ## GPM Installation (Preferred)
 
 The simplest way to install this theme is via the [Grav Package Manager (GPM)](http://learn.getgrav.org/advanced/grav-gpm) through your system's Terminal (also called the command line).  From the root of your Grav install type:

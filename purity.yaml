@@ -1,5 +1,6 @@
 enabled: true
 menu: blog
+type: dark
 
 streams:
   scheme:

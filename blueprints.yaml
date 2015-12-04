@@ -11,8 +11,6 @@ keywords: purity, purecss, yahoo, minimalist, theme, modern, fast, responsive, h
 bugs: https://github.com/absalomedia/grav-theme-purity/issues
 license: BSD-2-Clause
 
-
-
 form:
   validation: loose
   fields:
@@ -26,11 +24,17 @@ form:
           0: Disabled
         validate:
           type: bool
-    
   menu:
         type: text
         size: medium
         label: Menu
         default: 'blog'
+        validate:
+          type: text
+  type:
+        type: text
+        size: medium
+        label: Type
+        default: 'dark'
         validate:
           type: text
