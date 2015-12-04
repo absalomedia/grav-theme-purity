@@ -1,8 +1,6 @@
-<article class="box post post-excerpt">
-
-
-
-    {% if site.share.facebook or site.share.twitter %}
+<!-- A single blog post -->
+                <section class="post">
+                    {% if site.share.facebook or site.share.twitter %}
     <script type="text/javascript">
     {% if site.share.twitter %}
     jQuery.getJSON('https://cdn.api.twitter.com/1/urls/count.json?url={{ page.url(true) }}/&callback=?', function (data) {
@@ -16,36 +14,38 @@
     {% endif %}
     </script>
     {% endif %}
-    <header>
-    <div class="title">
-        {% if page.header.link %}
-            <h2>
+
+                    <header class="post-header">
+                        <img class="post-avatar" alt="{{ page.header.author }}" height="48" width="48" src="{{ url('theme://images/avatar.jpg') }}">
+
+                    {% if page.header.link %}
+            <h2 class="post-title">
                 {% if page.header.continue_link is not sameas(false) %}
                     <a href="{{ page.url }}"></a>
                 {% endif %}
                 <a href="{{ page.header.link }}">{{ page.title }}</a>
-            </h2>
-            {% else %}
-            <h2><a href="{{ page.url }}">{{ page.title }}</a></h2>
-        {% endif %}
-        {% if page.header.description %}
-        <p>{{ page.header.description }}</p>
-        {% endif %}
-    </div>
-             <div class="meta">
-                                        <time class="published" datetime="{{page.date|date("Y-m-d")}}">{{ page.date|date("M j, Y")}}</time>
-                                        <a href="{{ page.url }}" class="author"><span class="name">{{ page.header.author }}</span><img src="{{ url('theme://images/avatar.jpg') }}" alt="{{ page.header.author }}" /></a>
-            </div>
-    </header>
+              </h2>
+              {% else %}
+               <h2 class="post-title"><a href="{{ page.url }}">{{ page.title }}</a></h2>
+              {% endif %}
 
-        {% if big_header %}
-            {{ page.media.images|first.cropResize(1038,437).html(page.title, page.title, 'image featured') }}
-        {% else %}
-            {{ page.media.images|first.cropZoom(1038,437).html(page.title, page.title, 'image featured') }}
-        {% endif %}
 
-         
- 
+                        <p class="post-meta">
+                            By <a href="#" class="post-author">{{ page.header.author }}</a> on <time class="published" datetime="{{page.date|date("Y-m-d")}}">{{ page.date|date("M j, Y")}}</time> under 
+                             {% if page.taxonomy.tag %}
+                             {% for tag in page.taxonomy.tag %}
+                             <a class="post-category post-category-{{ tag|lower }}" href="{{ base_url }}/tag{{ config.system.param_sep }}{{ tag }}">{{ tag }}</a> 
+                             {% endfor %}
+                             {% endif %}
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        {% if page.header.description %}
+                        <p>{{ page.header.description }}</p>
+                         {% endif %}
+                         {{ page.media.images|all.html(page.title, page.title, 'pure-responsive') }}
+    
     {% if page.header.continue_link is sameas(false) %}
         <p>{{ page.content }}</p>
         {% if not truncate %}
@@ -59,37 +59,30 @@
         <p>{{ page.content }}</p>
         {% set show_prev_next = true %}
     {% endif %}
-
-
-    <footer>
-    <ul class="actions">
+     <ul class="actions">
     {% if truncate and page.summary != page.content %}
-        <li><a href="{{ page.url }}" class="button">Continue Reading</a></li>
+        <li><a href="{{ page.url }}" class="pure-button">Continue Reading</a></li>
     {% elseif truncate %}
-        <li><a href="{{ page.url }}" class="button">Continue Reading</a></li>
+        <li><a href="{{ page.url }}" class="pure-button">Continue Reading</a></li>
     {% endif %}
 
     {% if show_prev_next %}
            {% if not page.isFirst %}
-                <li><a class="button" href="{{ page.nextSibling.url }}"><i class="fa fa-chevron-left"></i> Next Post</a></li>         
+                <li><a class="pure-button" href="{{ page.nextSibling.url }}"><i class="fa fa-chevron-left"></i> Next Post</a></li>         
             {% endif %}
             {% if not page.isLast %}
-                <li><a class="button" href="{{ page.prevSibling.url }}">Previous Post <i class="fa fa-chevron-right"></i></a></li> 
+                <li><a class="pure-button" href="{{ page.prevSibling.url }}">Previous Post <i class="fa fa-chevron-right"></i></a></li> 
             {% endif %}
     {% endif %}
 
                                     </ul>
                                     <ul class="stats">
-                                            {% if page.taxonomy.tag %}
-                                                {% for tag in page.taxonomy.tag %}
-                                        <li><a href="{{ base_url }}/tag{{ config.system.param_sep }}{{ tag }}">{{ tag }}</a></li>
-                                                 {% endfor %}
-                                            {% endif %}
+                                           
                                         <li><a href="https://twitter.com/share" data-url="{{ page.url(true) }}" data-text="{{ page.title }}" class="icon fa-heart">
                                             <span id="so-url-shares{{ loop.index }}"><i class="fa fa-circle-o-notch fa-spin"></i></span></a></li>
                                         <li><a href="http://www.facebook.com/sharer.php?u={{ page.url(true) }}" class="icon fa-comment"><span id="so-fburl-shares{{ loop.index }}">0</span></a></li>
                                     </ul>
-                                </footer>
 
-
-</article>
+                        
+                    </div>
+                </section>

@@ -1,18 +1,18 @@
-<nav class="links">
-    <ul>
+<nav class="nav">
+    <ul class="nav-list">
     {% for page in pages.children %}
         {% if page.visible %}
             {% set current_page = (page.active or page.activeChild) ? 'current' : '' %}
-                <li class="{{ current_page }}">
-                    <a href="{{ page.url }}">
+                <li class="nav-item {{ current_page }}">
+                    <a class="pure-button" href="{{ page.url }}">
                         {{ page.menu }}
                     </a>
                 </li>
             {% endif %}
         {% endfor %}
         {% for mitem in site.menu %}
-            <li>
-                <a href="{{ mitem.link }}">{{ mitem.text }}</a>
+            <li class="nav-item">
+                <a class="pure-button" href="{{ mitem.link }}">{{ mitem.text }}</a>
             </li>
         {% endfor %}
     </ul>

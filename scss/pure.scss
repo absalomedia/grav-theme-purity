@@ -4,6 +4,7 @@
 /* PureCSS as a module SASS build sequence */
 
 // Components
+@import "font-awesome.min";
 @import "normalize/normalize";
 @import "build/base/base";
 @import "pure/src/grids/css/grids-core";

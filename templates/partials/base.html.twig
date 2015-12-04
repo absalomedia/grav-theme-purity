@@ -13,6 +13,7 @@
 
         {% block stylesheets %}
             {% do assets.addCss('theme://css/pure.min.css') %}
+            {% do assets.addCss('theme://css/layouts/blog.css') %}
         {% endblock %}
         {{ assets.css() }}
 
@@ -41,36 +42,23 @@
 
     {% endblock head%}
 </head>
-
 <body>
-    <div id="wrapper">
-            <header id="header">
-              <h1><a href="{{ site.url }}">{{ site.title }}</a></h1>
-                  {% include 'partials/navigation.html.twig' %}
-                  <nav class="main">
-                            <ul>
-                                {% if config.plugins.simplesearch.enabled %}
-                                {% include 'partials/simplesearch_searchbox.html.twig' %}
-                                {% endif %}
-                                <li class="menu">
-                                    <a class="fa-bars" href="#menu">Menu</a>
-                                </li>
-                            </ul>
-                        </nav>
-            </header>
+<div id="layout" class="pure-g">
+            {% block sidebar %}
+            {% include 'partials/sidebar.html.twig' %}
+            {% endblock %}
+   
         {% block body %}
 
-            <div id="content">
-                <div class="inner">
-                    {% block content %}
+    <div class="content pure-u-1 pure-u-md-3-4">
+        <div>
+           <div class="posts">
+                <h1 class="content-subhead">Recent Posts</h1>
+                {% block content %}
                     {% endblock %}
+                {% endblock %}
                 </div>
             </div>
-        {% endblock %}
-        {% block sidebar %}
-            {% include 'partials/sidebar.html.twig' %}
-        {% endblock %}
-
     </div>
 
 {% if config.plugins.simplesearch.enabled %}
