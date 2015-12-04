@@ -189,3 +189,11 @@ ul.icons, ul.actions {
     visibility: hidden;
     display: none;
 }
+
+.pure-g {
+    letter-spacing: normal;
+}
+
+.footer {
+    float: right;
+}
