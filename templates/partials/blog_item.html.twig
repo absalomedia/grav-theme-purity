@@ -46,7 +46,7 @@
                          {% endif %}
 
                         {% if page.header.continue_link is sameas(false) or truncate and page.summary != page.content or  truncate  %}
-                        {{ page.media.images|first.cropResize(300, 300).html(page.title, page.title, 'pure-img') }}
+                        {{ page.media.images|first.cropResize(400, 300).html(page.title, page.title, 'pure-img') }}
                         {% else %}
                         {{ page.media.images|first.html(page.title, page.title, 'pure-img') }}
                         {% endif %}
