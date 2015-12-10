@@ -1,5 +1,7 @@
 {% extends 'partials/base.html.twig' %}
 {% block content %}
+<div class="posts">
+                <h1 class="content-subhead">{{ page.header.title }}</h1>
 <section class="post">
   <header class="post-header">
     <h2 class="post-title">{{ page.header.title }}</h2>	
@@ -11,4 +13,5 @@
         {% endif %}
    {{ page.content}}
 </section>
+</div>
 {% endblock %}
