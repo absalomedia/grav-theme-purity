@@ -14,17 +14,6 @@ license: BSD-2-Clause
 form:
   validation: loose
   fields:
-    dropdown.enabled:
-        type: toggle
-        label: Dropdown in navbar
-        highlight: 1
-        default: 0
-        options:
-          1: Enabled
-          0: Disabled
-        validate:
-          type: bool
-
     layout.enabled:
         type: toggle
         label: Layout
