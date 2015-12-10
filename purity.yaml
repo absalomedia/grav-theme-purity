@@ -1,6 +1,11 @@
 enabled: true
-type: blog
-style: dark
+layout:
+  enabled: false
+style:
+  enabled: false
+dropdown:
+  enabled: false
+
 
 streams:
   scheme:
