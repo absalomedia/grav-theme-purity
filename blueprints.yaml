@@ -35,3 +35,16 @@ form:
           0: Dark
         validate:
           type: bool
+          
+    menu.enabled:
+        type: select
+        label: Menu style
+        highlight: 1
+        default: 0
+        options:
+          3: Horizontal
+          2: Tabbed
+          1: Vertical
+          0: None
+        validate:
+          type: number

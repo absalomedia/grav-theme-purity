@@ -3,6 +3,8 @@ layout:
   enabled: false
 style:
   enabled: false
+menu:
+  enabled: false
 
 streams:
   scheme:
