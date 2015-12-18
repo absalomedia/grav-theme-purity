@@ -15,8 +15,11 @@
 
         {% block stylesheets %}
             {% do assets.addCss('theme://css/pure.min.css') %}
-            {% do assets.addCss('theme://css/layouts/blog.css') %}
+            {% if theme_config.dropdown.layout == 'mark' %}
             {% do assets.addCss('theme://css/layouts/marketing.css') %}
+            {% else %}
+            {% do assets.addCss('theme://css/layouts/blog.css') %}
+            {% endif %}
             {% do assets.addCss('theme://css/font-awesome.min.css') %}
         {% endblock %}
         {{ assets.css() }}
