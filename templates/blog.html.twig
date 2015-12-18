@@ -25,7 +25,7 @@
                                               <img class="post-avatar" alt="{{ p.header.author }}" height="48" width="48" src="{{ url('theme://images/avatar.jpg') }}">
                                               <h2 class="post-title"><a href="{{ p.url }}">{{ p.title }}</a></h2>
                                               <p class="post-meta">
-                            By <a href="#" class="post-author">{{ p.header.author }}</a> on <time class="published" datetime="{{p.date|date("Y-m-d")}}">{{ p.date|date("M j, Y")}}</time> under 
+                            By <a href="{{ p.url }}" class="post-author">{{ p.header.author }}</a> on <time class="published" datetime="{{p.date|date("Y-m-d")}}">{{ p.date|date("M j, Y")}}</time> under 
                              {% if p.taxonomy.tag %}
                              {% for tag in p.taxonomy.tag %}
                              <a class="post-category post-category-{{ tag|lower }}" href="{{ base_url }}/tag{{ config.system.param_sep }}{{ tag }}">{{ tag }}</a> 
@@ -35,7 +35,7 @@
                     <div class="post-description">
                         <p>{{ p.header.description }}</p>
                              <ul class="actions">
-                                <li><a href="{{ page.url }}" class="pure-button">Continue Reading</a></li>
+                                <li><a href="{{ p.url }}" class="pure-button">Continue Reading</a></li>
                             </ul>
 
              {% endfor %}

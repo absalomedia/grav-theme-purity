@@ -1,10 +1,7 @@
 enabled: true
-layout:
-  enabled: false
-style:
-  enabled: false
-menu:
-  enabled: false
+layout: blog
+style: dark
+menu: 0
 
 streams:
   scheme:

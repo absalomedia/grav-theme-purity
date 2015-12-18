@@ -14,29 +14,29 @@ license: BSD-2-Clause
 form:
   validation: loose
   fields:
-    layout.enabled:
+    layout:
         type: toggle
         label: Layout
-        highlight: 1
-        default: 0
+        highlight: mark
+        default: blog
         options:
-          1: Marketing
-          0: Blog
+          mark: Marketing
+          blog: Blog
         validate:
           type: bool
           
-    style.enabled:
+    style:
         type: toggle
         label: Styling
-        highlight: 1
-        default: 0
+        highlight: l
+        default: d
         options:
-          1: Light
-          0: Dark
+          l: Light
+          d: Dark
         validate:
           type: bool
           
-    menu.enabled:
+    menu:
         type: select
         label: Menu style
         highlight: 1
