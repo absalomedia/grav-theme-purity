@@ -17,34 +17,33 @@ form:
     layout:
         type: toggle
         label: Layout
-        highlight: mark
-        default: blog
+        highlight: 0
+        default: 0
         options:
-          mark: Marketing
-          blog: Blog
+          0: Blog
+          1: Marketing
         validate:
           type: bool
           
     style:
         type: toggle
         label: Styling
-        highlight: l
-        default: d
+        highlight: 0
+        default: 0
         options:
-          l: Light
-          d: Dark
+          0: Dark
+          1: Light
         validate:
           type: bool
           
     menu:
         type: select
         label: Menu style
-        highlight: 1
         default: 0
         options:
-          3: Horizontal
-          2: Tabbed
-          1: Vertical
           0: None
+          1: Vertical
+          2: Tabbed
+          3: Horizontal
         validate:
           type: number

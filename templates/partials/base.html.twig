@@ -15,7 +15,7 @@
 
         {% block stylesheets %}
             {% do assets.addCss('theme://css/pure.min.css') %}
-            {% if theme_config.dropdown.layout == 'mark' %}
+            {% if theme_config.layout == '1' %}
             {% do assets.addCss('theme://css/layouts/marketing.css') %}
             {% else %}
             {% do assets.addCss('theme://css/layouts/blog.css') %}
@@ -50,7 +50,7 @@
     {% endblock head%}
 </head>
 <body>
-<div id="layout" class="pure-g">
+<div id="layout" class="pure-g" role="banner">
             {% block sidebar %}
             {% include 'partials/sidebar.html.twig' %}
             {% endblock %}
@@ -58,7 +58,7 @@
         {% block body %}
 
     <div class="content pure-u-1 pure-u-md-3-4">
-        <div>
+        <div role="main">
 
                 {% block content %}
                     {% endblock %}
@@ -66,7 +66,7 @@
             </div>
     </div>
 
-    <div class="footer">
+    <div class="footer" role="navigation">
                 <div class="pure-menu pure-menu-horizontal">
                     <ul>
                         <li class="pure-menu-item"><a href="http://purecss.io/" class="pure-menu-link">About</a></li>

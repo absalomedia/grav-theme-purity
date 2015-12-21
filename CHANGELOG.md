@@ -1,5 +1,5 @@
-# v1.0.0
-## 12/02/2015
+# v0.5.0
+## 12/21/2015
 
 1. [](#new)
-    * ChangeLog started...
+    * Base "blog" theme design stable

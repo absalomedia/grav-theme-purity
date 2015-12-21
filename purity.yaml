@@ -1,6 +1,6 @@
 enabled: true
-layout: blog
-style: dark
+layout: 0
+style: 0
 menu: 0
 
 streams:
