@@ -7,7 +7,8 @@ Purity: [Pure CSS](http://www.purecss.io) from [Yahoo](http://www.yahoo.com) int
 * HTML5 and CSS3
 * Fully Responsive
 * Various templates for presenting your content
-* Repositionable sidebar (left or right),
+* Microdata for blogs
+* ARIA accessibility conformance
 * Calendar with actual date (post date for blog items)
 * Styling for all basic page elements
 * Styling for various modules
