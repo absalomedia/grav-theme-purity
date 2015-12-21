@@ -19,14 +19,14 @@
                         <img class="post-avatar" alt="{{ page.header.author }}" height="48" width="48" src="{{ url('theme://images/avatar.jpg') }}">
 
                     {% if page.header.link %}
-            <h2 class="post-title">
+            <h2 class="post-title" itemprop="headline">
                 {% if page.header.continue_link is not sameas(false) %}
                     <a href="{{ page.url }}"></a>
                 {% endif %}
                 <a href="{{ page.header.link }}">{{ page.title }}</a>
               </h2>
               {% else %}
-               <h2 class="post-title"><a href="{{ page.url }}">{{ page.title }}</a></h2>
+               <h2 class="post-title"itemprop="headline"><a href="{{ page.url }}">{{ page.title }}</a></h2>
               {% endif %}
 
 
@@ -68,11 +68,11 @@
         {% set show_prev_next = true %}
         {% endif %}
     {% elseif truncate and page.summary != page.content %}
-        <p>{{ page.summary }}</p>
+        <p itemprop="articleBody">{{ page.summary }}</p>
     {% elseif truncate %}
-        <p>{{ page.content|truncate(550) }}</p>
+        <p itemprop="articleBody">{{ page.content|truncate(550) }}</p>
     {% else %}
-        <p>{{ page.content }}</p>
+        <pitemprop="articleBody">{{ page.content }}</p>
         {% set show_prev_next = true %}
     {% endif %}
      <ul class="actions">
