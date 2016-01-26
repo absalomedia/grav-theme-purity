@@ -2,10 +2,3 @@ enabled: true
 layout: 0
 style: 0
 menu: 0
-
-streams:
-  scheme:
-    theme:
-      type: ReadOnlyStream
-      paths:
-        - user/themes/purity
