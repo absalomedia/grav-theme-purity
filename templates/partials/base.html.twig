@@ -62,10 +62,11 @@
 
                 {% block content %}
                     {% endblock %}
-                {% endblock %}
+ 
             </div>
     </div>
-
+               {% endblock %}
+{% block footer %}
     <div class="footer" role="navigation">
                 <div class="pure-menu pure-menu-horizontal">
                     <ul>
@@ -78,7 +79,7 @@
         </div>
     </div>
 </div>
-   
+{% endblock %}   
 
 {% if config.plugins.simplesearch.enabled %}
 <script type="text/javascript">
@@ -94,5 +95,9 @@ $(document).ready(function($){
 });
 </script>
 {% endif %}
+
+    {% block bottom %}
+        {{ assets.js('bottom') }}
+    {% endblock %}
 </body>
 </html>
