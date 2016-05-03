@@ -1,5 +1,14 @@
 {% embed 'partials/base.html.twig' %}
 
+{% if page.header.author %}
+{% set author =  page.header.author %}
+{% else %}
+{% set author =  page.header.taxonomy.author[0] %}
+{% endif %}
+{% if author %}
+{% set avatar = author|replace(' ', '-')|lower %}
+{% endif %}
+
   {% set collection = page.collection() %}
   {% set base_url = page.url %}
   {% set feed_url = base_url %}
@@ -22,10 +31,15 @@
                                     <!-- Mini Post -->
                                   <section class="post">
                                        <header class="post-header">
-                                              <img class="post-avatar" alt="{{ p.header.author }}" height="48" width="48" src="{{ url('theme://images/avatar.jpg') }}">
+                                              {% if author %}
+                                              <img class="post-avatar" alt="{{ author }}" height="48" width="48" src="{{ theme_url }}/images/{{avatar}}.jpg">
+                                              {% endif %}
                                               <h2 class="post-title"><a href="{{ p.url }}">{{ p.title }}</a></h2>
                                               <p class="post-meta">
-                            By <a href="{{ p.url }}" class="post-author">{{ p.header.author }}</a> on <time class="published" datetime="{{p.date|date("Y-m-d")}}">{{ p.date|date("M j, Y")}}</time> under 
+                            {% if author %}
+                            By <a href="{{ p.url }}" class="post-author">{{ author }}</a>
+                            {% endif %}
+                             on <time class="published" datetime="{{p.date|date("Y-m-d")}}">{{ p.date|date("M j, Y")}}</time> under 
                              {% if p.taxonomy.tag %}
                              {% for tag in p.taxonomy.tag %}
                              <a class="post-category post-category-{{ tag|lower }}" href="{{ base_url }}/tag{{ config.system.param_sep }}{{ tag }}">{{ tag }}</a> 
