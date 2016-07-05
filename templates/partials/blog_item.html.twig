@@ -1,6 +1,14 @@
 <!-- A single blog post -->
                 <section class="post">
-                    {% if site.share.facebook or site.share.twitter %}
+                    {% if page.header.author %}
+         {% set author =  page.header.author %}
+         {% else %}
+         {% set author =  page.header.taxonomy.author[0] %}
+         {% endif %}
+         {% if author %}
+         {% set avatar = author|replace(' ', '-')|lower %}
+         {% endif %}
+    {% if site.share.facebook or site.share.twitter %}
     <script type="text/javascript">
     {% if site.share.twitter %}
     jQuery.getJSON('https://cdn.api.twitter.com/1/urls/count.json?url={{ page.url(true) }}/&callback=?', function (data) {

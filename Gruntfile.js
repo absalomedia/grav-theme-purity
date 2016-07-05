@@ -32,6 +32,19 @@ grunt.initConfig({
         tables : ['scss/pure/src/tables/css/*.css']
     },
 
+    // -- PostCSS Config --------------------------------------------------------
+
+    postcss: {
+        options: {
+            processors: [
+                require('autoprefixer')({browsers: ['last 2 versions', 'ie >= 8', 'iOS >= 6', 'Android >= 4']})
+            ]
+        },
+        dist: {
+            src: 'build/*.css'
+        }
+    },
+
 
     // -- Pure Grids Units Config ----------------------------------------------
 
@@ -97,6 +110,7 @@ grunt.loadNpmTasks('grunt-contrib-cssmin');
 grunt.loadNpmTasks('grunt-contrib-compress');
 grunt.loadNpmTasks('grunt-contrib-watch');
 grunt.loadNpmTasks('grunt-css-selectors');
+grunt.loadNpmTasks('grunt-postcss');
 grunt.loadNpmTasks('grunt-pure-grids');
 
 // Local tasks.
@@ -107,6 +121,7 @@ grunt.registerTask('test', ['csslint']);
 grunt.registerTask('grunt-build', [
     'pure_grids',
     'css_selectors:base',
+    'postcss',
 ]);
 
 // Makes the `watch` task run a build first.
@@ -117,7 +132,6 @@ grunt.registerTask('release', [
     'default',
     'clean:release',
     'copy:release',
-    'bower_json:release',
     'compress:release'
 ]);
 
