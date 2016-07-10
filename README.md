@@ -8,11 +8,13 @@ Purity: [Pure CSS](http://www.purecss.io) from [Yahoo](http://www.yahoo.com) int
 * Fully Responsive
 * Various templates for presenting your content
 * Microdata for blogs
+* Google Fonts weighting & balance
 * ARIA accessibility conformance
 * Calendar with actual date (post date for blog items)
 * Styling for all basic page elements
 * Styling for various modules
 * Cross browser compatible
+* Custom tagline & dynamic avatars
 * Sharing buttons for Facebook and Twitter with share count.
 
 # Installation
@@ -20,6 +22,14 @@ Purity: [Pure CSS](http://www.purecss.io) from [Yahoo](http://www.yahoo.com) int
 Installing the Purity theme can be done in one of two ways. Our GPM (Grav Package Manager) installation method enables you to quickly and easily install the theme with a simple terminal command, while the manual method enables you to do so via a zip file.
 
 The theme by itself is useful, but you may have an easier time getting up and running by installing a skeleton. A skeleton is being developed in due course.
+
+# Dynamic avatars
+
+Dynamic avatar images for each author must be placed inside the `/your/site/grav/user/themes/purity/images` directory as JPG. Each avatar image should be a lowercase version of the author. i.e. Fred Bloggs becomes fred-bloggs.jpg
+
+# Dynamic tagline
+
+The tagline can be changed by changing the 'tagline' text inside the purity.yaml file.
 
 # Customising core CSS
 

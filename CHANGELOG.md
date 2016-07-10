@@ -1,3 +1,12 @@
+# v0.5.3
+## 07/11/2016
+
+1. [](#new)
+    * Dynamic tagline
+    * Google Fonts
+2.  [](#bugfix)
+    * Dynamic avatar images
+
 # v0.5.2
 ## 05/04/2016
 
