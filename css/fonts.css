@@ -1,0 +1,33 @@
+* {
+  font-family: 'Quattrocento', serif;
+  font-smoothing: antialiased; }
+
+h1 {
+  font-size: 2em;
+  font-family: 'Oswald', sans-serif;
+  font-smoothing: antialiased; }
+
+h2 {
+  font-size: 1.8em;
+  font-family: 'Oswald', sans-serif;
+  font-smoothing: antialiased; }
+
+h3 {
+  font-size: 1.6em;
+  font-family: 'Oswald', sans-serif;
+  font-smoothing: antialiased; }
+
+h4 {
+  font-size: 1.4em;
+  font-family: 'Oswald', sans-serif;
+  font-smoothing: antialiased; }
+
+h5 {
+  font-size: 1.2em;
+  font-family: 'Oswald', sans-serif;
+  font-smoothing: antialiased; }
+
+h6 {
+  font-size: 1em;
+  font-family: 'Oswald', sans-serif;
+  font-smoothing: antialiased; }
