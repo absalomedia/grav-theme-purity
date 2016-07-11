@@ -32,6 +32,22 @@ grunt.initConfig({
         tables : ['scss/pure/src/tables/css/*.css']
     },
 
+    // -- Copy Patch Config --------------------------------------------------------
+    copy: {
+        jspatch: {
+            expand: true,
+            cwd: 'js/rework/',
+            src: '**',
+            dest: 'node_modules/rework-pure-grids',
+          },
+        csspatch: {
+            expand: true,
+            cwd: 'scss/patch/',
+            src: '**',
+            dest: 'scss/pure/src/',
+        },
+    },
+
     // -- PostCSS Config --------------------------------------------------------
 
     postcss: {
@@ -119,6 +135,8 @@ grunt.loadTasks('/tasks');
 grunt.registerTask('default', ['test', 'grunt-build']);
 grunt.registerTask('test', ['csslint']);
 grunt.registerTask('grunt-build', [
+    'copy:jspatch',
+    'copy:csspatch',
     'pure_grids',
     'css_selectors:base',
     'postcss',
