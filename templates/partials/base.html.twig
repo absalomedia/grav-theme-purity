@@ -15,7 +15,7 @@
         <link href="https://fonts.googleapis.com/css?family=Oswald|Quattrocento" rel="stylesheet">
         {% block stylesheets %}
             {% do assets.addCss('theme://css/pure.min.css') %}
-            {% if theme_config.layout == '1' %}
+            {% if config.themes.purity.layout == '1' %}
             {% do assets.addCss('theme://css/layouts/marketing.css') %}
             {% else %}
             {% do assets.addCss('theme://css/layouts/blog.css') %}
@@ -68,6 +68,8 @@
             </div>
     </div>
                {% endblock %}
+
+{% if config.themes.purity.footer == '1' %}
 {% block footer %}
     <div class="footer" role="navigation">
                 <div class="pure-menu pure-menu-horizontal">
@@ -77,11 +79,13 @@
                         <li class="pure-menu-item"><a href="http://github.com/yahoo/pure/" class="pure-menu-link">GitHub</a></li>
                     </ul>
                 </div>
-            </div>
+    </div>
+{% endblock %}
+{% endif %} 
         </div>
     </div>
 </div>
-{% endblock %}   
+  
 
 {% if config.plugins.simplesearch.enabled %}
 <script type="text/javascript">

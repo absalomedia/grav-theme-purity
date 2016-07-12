@@ -1,5 +1,5 @@
 name: Purity
-version: 0.5.3
+version: 0.5.4
 description: "Purity: Pure CSS from Yahoo ported into Grav, with customised options for theme colours, menu design & layout control."
 icon: group
 author:
@@ -14,6 +14,23 @@ license: BSD-2-Clause
 form:
   validation: loose
   fields:
+    tagline:
+        type: text
+        label: Tagline
+        default: Creating a blog layout using Pure
+        validate:
+            type: text
+    footer:
+        type: toggle
+        label: Enable Footer
+        highlight: 0
+        default: 1
+        options:
+          0: Off
+          1: On
+        validate:
+          type: bool      
+
     layout:
         type: toggle
         label: Layout

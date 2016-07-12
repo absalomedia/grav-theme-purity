@@ -6,6 +6,7 @@ Purity: [Pure CSS](http://www.purecss.io) from [Yahoo](http://www.yahoo.com) int
 
 * HTML5 and CSS3
 * Fully Responsive
+* Optimised for current browser technology - nothing below IE8
 * Various templates for presenting your content
 * Microdata for blogs
 * Google Fonts weighting & balance
@@ -14,7 +15,7 @@ Purity: [Pure CSS](http://www.purecss.io) from [Yahoo](http://www.yahoo.com) int
 * Styling for all basic page elements
 * Styling for various modules
 * Cross browser compatible
-* Custom tagline & dynamic avatars
+* Custom dynamic avatars, tagline and footer.
 * Sharing buttons for Facebook and Twitter with share count.
 
 # Installation
@@ -23,13 +24,21 @@ Installing the Purity theme can be done in one of two ways. Our GPM (Grav Packag
 
 The theme by itself is useful, but you may have an easier time getting up and running by installing a skeleton. A skeleton is being developed in due course.
 
-# Dynamic avatars
+## Dynamic avatars
 
 Dynamic avatar images for each author must be placed inside the `/your/site/grav/user/themes/purity/images` directory as JPG. Each avatar image should be a lowercase version of the author. i.e. Fred Bloggs becomes fred-bloggs.jpg
 
-# Dynamic tagline
+## Dynamic tagline
 
-The tagline can be changed by changing the 'tagline' text inside the purity.yaml file.
+The tagline can be changed by changing the 'tagline' text when inside the Purity theme configuration area of the Admin or inside the purity.yaml file.
+
+## Dynamic footer
+
+The footer can be turned on and off when inside the Purity theme configuration area of the Admin or inside the purity.yaml file.
+
+## Alternate layouts
+
+Alternate layout and menu styling is being developed based on the core layouts designed by Yahoo. Currently the 'blog' layout works, with the 'marketing' (combined landing page & pricing table layouts) and 'email' designs coming soon. Menu options & styling will be offered closer to 1.0.0 release.
 
 # Customising core CSS
 

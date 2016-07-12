@@ -1,3 +1,12 @@
+# v0.5.4
+## 07/12/2016
+
+1. [](#new)
+    * Dynamic footer
+    * PureCSS standardised to IE8 & above
+2.  [](#bugfix)
+    * Dynamic tagline in config
+
 # v0.5.3
 ## 07/11/2016
 
