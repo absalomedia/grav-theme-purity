@@ -38,7 +38,7 @@ The footer can be turned on and off when inside the Purity theme configuration a
 
 ## Alternate layouts
 
-Alternate layout and menu styling is being developed based on the core layouts designed by Yahoo. Currently the '[blog](http://purecss.io/layouts/blog/) layout works, with the 'marketing' - combined [marketing](http://purecss.io/layouts/marketing/) & [pricing](http://purecss.io/layouts/pricing/) table layouts -  and '[email](http://purecss.io/layouts/email/)' designs coming soon. Menu options & contrast colour styling will be offered closer to 1.0.0 release.
+Alternate layout and menu styling is being developed based on the core layouts designed by Yahoo. Currently the '[blog](http://purecss.io/layouts/blog/)' layout works, with the 'marketing' - combined [marketing](http://purecss.io/layouts/marketing/) & [pricing](http://purecss.io/layouts/pricing/) table layouts -  and '[email](http://purecss.io/layouts/email/)' designs coming soon. Menu options & contrast colour styling will be offered closer to 1.0.0 release.
 
 # Customising core CSS
 
