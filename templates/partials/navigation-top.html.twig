@@ -1,0 +1,16 @@
+    <a class="pure-menu-heading" href="{{ base_url_absolute }}">{{ site.title|upper }}</a>
+    {% for page in pages.children %}
+        {% if page.visible %}
+            {% set current_page = (page.active or page.activeChild) ? 'current' : '' %}
+                <li class="pure-menu-item {{ current_page }}">
+                    <a class="pure-menu-link" href="{{ page.url }}">
+                        {{ page.menu }}
+                    </a>
+                </li>
+            {% endif %}
+        {% endfor %}
+        {% for mitem in site.menu %}
+            <li class="pure-menu-item">
+                <a class="pure-menu-link" href="{{ mitem.link }}">{{ mitem.text }}</a>
+            </li>
+        {% endfor %}

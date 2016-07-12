@@ -1,5 +1,5 @@
-{% set theme_config = attribute(config.themes, config.system.pages.theme) %}
 <!DOCTYPE html>
+{% set theme_config = attribute(config.themes, config.system.pages.theme) %}
 <!--[if lt IE 8 ]><html class="no-js ie ie7" lang="{{ grav.language.getActive ?: theme_config.default_lang }}">"> <![endif]-->
 <!--[if IE 8 ]><html class="no-js ie ie8" lang="{{ grav.language.getActive ?: theme_config.default_lang }}">> <![endif]-->
 <!--[if IE 9 ]><html class="no-js ie ie9" lang="{{ grav.language.getActive ?: theme_config.default_lang }}">> <![endif]-->
@@ -12,11 +12,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" type="image/png" href="{{ url('theme://images/favicon.png') }}" />
         <link rel="canonical" href="{{ page.url(true, true) }}" />
-        <link href="https://fonts.googleapis.com/css?family=Oswald|Quattrocento" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Oswald|Quattrocento" rel="stylesheet" />
         {% block stylesheets %}
             {% do assets.addCss('theme://css/pure.min.css') %}
             {% if config.themes.purity.layout == '1' %}
             {% do assets.addCss('theme://css/layouts/marketing.css') %}
+            {% do assets.addCss('theme://css/layouts/gallery.css') %}
+            {% do assets.addCss('theme://css/layouts/pricing.css') %}
             {% elseif config.themes.purity.layout == '2'%}
             {% do assets.addCss('theme://css/layouts/email.css') %}
             {% else %}
@@ -54,11 +56,25 @@
     {% endblock head%}
 </head>
 <body>
-<div id="layout" class="pure-g" role="banner">
+    {% if config.themes.purity.layout == '0' %}
+    <div id="layout" class="pure-g" role="banner">
+
             {% block sidebar %}
             {% include 'partials/sidebar.html.twig' %}
             {% endblock %}
-   
+    {% endif %}
+
+    {% if config.themes.purity.layout == '1' %}
+<header class="header">
+    <nav class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed" role="navigation">
+
+    {% include 'partials/navigation-top.html.twig' %}
+
+    </nav>
+</header>
+    {% endif %}
+
+
         {% block body %}
 
     <div class="content pure-u-1 pure-u-md-3-4">
@@ -66,12 +82,12 @@
 
                 {% block content %}
                     {% endblock %}
- 
+
             </div>
     </div>
                {% endblock %}
 
-{% if config.themes.purity.footer == '1' %}
+{% if config.themes.purity.footer == '1' and config.themes.purity.layout == '0' %}
 {% block footer %}
     <div class="footer" role="navigation">
                 <div class="pure-menu pure-menu-horizontal">
@@ -83,11 +99,11 @@
                 </div>
     </div>
 {% endblock %}
-{% endif %} 
+{% endif %}
         </div>
     </div>
 </div>
-  
+
 
 {% if config.plugins.simplesearch.enabled %}
 <script type="text/javascript">
