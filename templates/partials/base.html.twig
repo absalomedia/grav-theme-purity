@@ -17,6 +17,8 @@
             {% do assets.addCss('theme://css/pure.min.css') %}
             {% if config.themes.purity.layout == '1' %}
             {% do assets.addCss('theme://css/layouts/marketing.css') %}
+            {% elseif config.themes.purity.layout == '2'%}
+            {% do assets.addCss('theme://css/layouts/email.css') %}
             {% else %}
             {% do assets.addCss('theme://css/layouts/blog.css') %}
             {% endif %}
