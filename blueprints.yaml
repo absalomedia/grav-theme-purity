@@ -39,6 +39,7 @@ form:
         options:
           0: Blog
           1: Marketing
+          2: Email
         validate:
           type: bool
           
