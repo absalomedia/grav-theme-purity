@@ -1,0 +1,24 @@
+.sidebar {
+    opacity: 1; 
+    background-image: linear-gradient(to right, rgb(236, 233, 230), rgb(255, 255, 255)); 
+    background-color: rgb(255, 255, 255);
+    color: #696969;
+}
+
+.content {
+    opacity: 1; 
+    background-image: linear-gradient(to left, rgb(236, 233, 230), rgb(255, 255, 255)); 
+    background-color: rgb(255, 255, 255);
+}
+
+a, .nav-item a {
+	color: #2E3532;
+}
+
+.brand-tagline {
+	color: #7E9181;
+}
+
+.nav-item a {
+	border: 2px solid #7E9181;
+}

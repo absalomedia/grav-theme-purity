@@ -24,6 +24,9 @@
             {% else %}
             {% do assets.addCss('theme://css/layouts/blog.css') %}
             {% endif %}
+            {% if config.themes.purity.style == '1' %}
+            {% do assets.addCss('theme://css/contrast/light.css') %}
+            {% endif %}     
             {% do assets.addCss('theme://css/font-awesome.min.css') %}
             {% do assets.addCss('theme://css/fonts.css') %}
         {% endblock %}
