@@ -1,3 +1,11 @@
+# v0.5.5
+## 07/13/2016
+
+1. [](#new)
+    * Light / Dark Blog styling
+2.  [](#bugfix)
+    * Restructure CSS & JS
+
 # v0.5.4
 ## 07/12/2016
 
