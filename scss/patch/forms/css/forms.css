@@ -208,16 +208,6 @@ since IE8 won't execute CSS that contains a CSS3 selector.
     vertical-align: middle;
 }
 
-.lt-ie8 .pure-form-aligned input,
-.lt-ie8 .pure-form-aligned textarea,
-.lt-ie8 .pure-form-aligned select,
-/* NOTE: pure-help-inline is deprecated. Use .pure-form-message-inline instead. */
-.lt-ie8 .pure-form-aligned .pure-help-inline,
-.lt-ie8 .pure-form-message-inline {
-    display: inline;
-    zoom: 1;
-}
-
 .pure-form-aligned textarea {
     vertical-align: top;
 }
