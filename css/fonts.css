@@ -31,3 +31,7 @@ h6 {
   font-size: 1em;
   font-family: 'Oswald', sans-serif;
   font-smoothing: antialiased; }
+
+.pure-g {
+  letter-spacing: normal;
+}
