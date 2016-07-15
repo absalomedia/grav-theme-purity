@@ -57,7 +57,7 @@ grunt.initConfig({
             ]
         },
         dist: {
-            src: 'build/*.css'
+            src: 'build/**/*.css'
         }
     },
 
