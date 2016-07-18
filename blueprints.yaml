@@ -58,9 +58,8 @@ form:
         label: Menu style
         default: 0
         options:
-          0: None
-          1: Vertical
+          0: Vertical
+          1: Follow
           2: Tabbed
-          3: Horizontal
         validate:
           type: number
