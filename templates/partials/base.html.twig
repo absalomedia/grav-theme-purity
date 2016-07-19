@@ -17,13 +17,18 @@
             {% do assets.addCss('theme://css/pure.min.css') %}
             {% if config.themes.purity.layout == '1' %}
             {% do assets.addCss('theme://css/layouts/marketing.css') %}
-            {% do assets.addCss('theme://css/layouts/gallery.css') %}
-            {% do assets.addCss('theme://css/layouts/pricing.css') %}
-            {% elseif config.themes.purity.layout == '2'%}
-            {% do assets.addCss('theme://css/layouts/email.css') %}
             {% else %}
             {% do assets.addCss('theme://css/layouts/blog.css') %}
             {% endif %}
+
+            {% if config.themes.purity.menu == '1' %}
+            {% do assets.addCss('theme://css/nav/vertical.css') %}
+            {% elseif config.themes.purity.menu == '2' %}
+            {% do assets.addCss('theme://css/nav/follow.css') %}
+            {% elseif config.themes.purity.menu == '3' %}
+            {% do assets.addCss('theme://css/nav/tucked.css') %}
+            {% endif %}
+
             {% if config.themes.purity.style == '1' %}
             {% do assets.addCss('theme://css/contrast/light.css') %}
             {% endif %}     
@@ -69,10 +74,16 @@
 
     {% if config.themes.purity.layout == '1' %}
 <header class="header">
+        {% if config.themes.purity.menu == '0' %}
     <nav class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed" role="navigation">
-
-    {% include 'partials/navigation-top.html.twig' %}
-
+        {% include 'partials/navigation-top.html.twig' %}
+        {% elseif config.themes.purity.menu == '3' %}
+    <nav class="custom-menu-wrapper" id="menu" role="navigation">
+        {% include 'partials/navigation-tabbed.html.twig' %}   
+         {% else %}       
+    <nav class="custom-wrapper pure-g" id="menu" role="navigation"> 
+        {% include 'partials/navigation-respond.html.twig' %}  
+        {% endif %}
     </nav>
 </header>
     {% endif %}
@@ -125,6 +136,17 @@ $(document).ready(function($){
 
     {% block bottom %}
         {{ assets.js('bottom') }}
+
+    {% if config.themes.purity.layout == '1' %}
+        {% if config.themes.purity.menu == '0' %}
+        <script src="{{ url('theme://js/ui.js') }}"></script>
+        {% elseif config.themes.purity.menu == '3' %}
+        <script src="{{ url('theme://js/ui-tucked.js') }}"></script>  
+         {% else %}       
+        <script src="{{ url('theme://js/ui-respond.js') }}"></script>  
+        {% endif %}
+    {% endif %}
+    
     {% endblock %}
 </body>
 </html>
