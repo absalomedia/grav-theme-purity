@@ -280,3 +280,16 @@ a.pure-button-primary {
         font-size: 300%;
     }
 }
+
+/* Grav related modifications */
+
+
+.icons-inline ul {
+    list-style: none;
+}
+
+.icons-inline li {
+    display: inline-block;
+    margin-right: 1em;
+    text-decoration: none;
+}
