@@ -58,6 +58,7 @@
 .pure-menu-has-children > .pure-menu-label:after {
     content: '\25B8';
     float: right;
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'DejaVu Sans', sans-serif;
     margin-right: -20px;
     margin-top: -1px;
 }
@@ -78,3 +79,82 @@
 .pure-menu-hidden {
     display: none;
 }
+/* MAIN MENU STYLING */
+
+.pure-menu.pure-menu-open,
+.pure-menu.pure-menu-horizontal li .pure-menu-children {
+    background: #fff; /* Old browsers */
+    border: 1px solid #b7b7b7;
+}
+
+/* remove borders for horizontal menus */
+.pure-menu.pure-menu-horizontal,
+.pure-menu.pure-menu-horizontal .pure-menu-heading {
+    border: none;
+}
+
+
+/* LINK STYLES */
+
+.pure-menu a {
+    border: 1px solid transparent;
+    border-left: none;
+    border-right: none;
+
+}
+
+.pure-menu a,
+.pure-menu .pure-menu-has-children > li:after {
+    color: #777;
+}
+
+.pure-menu .pure-menu-has-children > li:hover:after {
+    color: #fff;
+}
+
+/* Focus style for a dropdown menu-item when the parent has been opened */
+.pure-menu .pure-menu-open {
+    background: #dedede;
+}
+
+
+.pure-menu li a:hover,
+.pure-menu li a:focus {
+    background: #eee;
+}
+
+/* DISABLED STATES */
+.pure-menu li.pure-menu-disabled a:hover,
+.pure-menu li.pure-menu-disabled a:focus {
+    background: #fff;
+    color: #bfbfbf;
+}
+
+.pure-menu .pure-menu-disabled > a {
+    background-image: none;
+    border-color: transparent;
+    cursor: default;
+}
+
+.pure-menu .pure-menu-disabled > a,
+.pure-menu .pure-menu-has-children.pure-menu-disabled > a:after {
+    color: #bfbfbf;
+}
+
+/* HEADINGS */
+.pure-menu .pure-menu-heading {
+    color: #565d64;
+    text-transform: uppercase;
+}
+
+/* ACTIVE MENU ITEM */
+.pure-menu .pure-menu-selected a {
+    color: #000;
+}
+
+/* FIXED MENU */
+.pure-menu.pure-menu-open.pure-menu-fixed {
+    border: none;
+    border-bottom: 1px solid #b7b7b7;
+}
+

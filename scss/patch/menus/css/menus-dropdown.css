@@ -6,6 +6,7 @@
 .pure-menu-children {
     display: none;
     position: absolute;
+    list-style: none;
     left: 100%;
     top: 0;
     margin: 0;
@@ -19,6 +20,24 @@
     width: inherit;
 }
 
+/* Vertical Menus - when an item is interacted with, show the children */
+.pure-menu-item:hover > .pure-menu-children,
+.pure-menu-item:focus > .pure-menu-children {
+    display: inline-block;
+    top: 0;
+    left: 100%;
+    width: inherit;
+}
+
+/* Horizontal Menus - when an item is interacted with, show the children */
+.pure-menu-horizontal .pure-menu-item:hover > .pure-menu-children,
+.pure-menu-horizontal .pure-menu-item:focus > .pure-menu-children {
+    top: 100%;
+    left: 0;
+    width: inherit;
+}
+
+
 .pure-menu-allow-hover:hover > .pure-menu-children,
 .pure-menu-active > .pure-menu-children {
     display: block;
@@ -29,10 +48,16 @@
 .pure-menu-has-children > .pure-menu-link:after {
     padding-left: 0.5em;
     content: "\25B8";
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'DejaVu Sans', sans-serif;
     font-size: small;
 }
 
 /* Horizontal Menus - show the dropdown arrow */
 .pure-menu-horizontal .pure-menu-has-children > .pure-menu-link:after {
     content: "\25BE";
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'DejaVu Sans', sans-serif;
+}
+
+.pure-menu-horizontal .pure-menu-has-children li {
+    display: block;
 }
