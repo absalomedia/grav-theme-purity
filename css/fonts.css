@@ -1,6 +1,7 @@
 * {
   font-family: 'Quattrocento', serif;
-  font-smoothing: antialiased; }
+  font-smoothing: antialiased; 
+  text-rendering: optimizespeed; }
 
 h1 {
   font-size: 2em;
