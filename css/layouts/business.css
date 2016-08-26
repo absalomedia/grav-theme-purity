@@ -1,0 +1,74 @@
+.banner {
+    background:url(http://placekitten.com/g/1600/1200) top center no-repeat fixed;
+    display:block;
+    height:400px;
+}
+
+.banner h1 {
+    font-size: 3em;
+    margin: 0;
+    padding: 3.6em 1em;
+    text-shadow: 2px 1px 4px white;
+}
+
+.featured-items,
+.feature-descriptions {
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+.featured-items .item {
+    margin: 1em 0.5em;
+    text-align: center;
+}
+
+.featured-items .item header {
+    background: black;
+    color: white;
+    padding-bottom: 2em;
+}
+
+.featured-items .item .price {
+    font-size: 6em;
+    font-weight: bold;
+}
+
+.featured-items .item .price span {
+    display: block;
+    font-size: 1rem;
+}
+
+.featured-items .item img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.featured-items .item ul {
+    list-style: none;
+    padding: 0;
+}
+
+.featured-items .item ul li {
+    padding: 1em 0;
+}
+
+.featured-items .item ul li + li {
+    border-top: 1px solid rgba(0,0,0,0.15);
+}
+
+.feature-descriptions .description {
+    line-height: 1.6;
+    padding: 2em;
+}
+
+.feature-descriptions .description h3 {
+    text-transform: uppercase;
+}
+
+body > footer {
+    background: black;
+    color: white;
+    padding: 1em;
+    text-align: center;
+}
