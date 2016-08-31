@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 {% set theme_config = attribute(config.themes, config.system.pages.theme) %}
-<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="{{ grav.language.getActive ?: theme_config.default_lang }}">"> <![endif]-->
-<!--[if IE 8 ]><html class="no-js ie ie8" lang="{{ grav.language.getActive ?: theme_config.default_lang }}">> <![endif]-->
 <!--[if IE 9 ]><html class="no-js ie ie9" lang="{{ grav.language.getActive ?: theme_config.default_lang }}">> <![endif]-->
 <!--[if (gte IE 8)|!(IE)]><!--><html class="no-js" lang="{{ grav.language.getActive ?: theme_config.default_lang }}"> <!--<![endif]-->
 <head>
@@ -16,7 +14,7 @@
         {% block stylesheets %}
             {% do assets.addCss('theme://css/pure.min.css') %}
             {% if config.themes.purity.layout == '1' %}
-            {% do assets.addCss('theme://css/layouts/marketing.css') %}
+            {% do assets.addCss('theme://css/layouts/business.css') %}
             {% else %}
             {% do assets.addCss('theme://css/layouts/blog.css') %}
             {% endif %}
@@ -43,13 +41,9 @@
         {{ assets.js() }}
 
 
-        <!--[if lte IE 8]><script src="{{ url('theme://js/html5shiv.js') }}"></script><![endif]-->
-
         {% if site.calendar %}
            <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
        {% endif %}
-
-       <!--[if lte IE 8]><script src="{{ url('theme://js/respond.min.js') }}"></script><![endif]-->
 
        {% if site.calendar %}
         <script type="text/javascript">
@@ -131,6 +125,7 @@
     {% endif %}
 
 {% if config.themes.purity.layout == '1' %}
+
     <footer class="footer l-box is-center">
                 <ul class="icons-inline" role="navigation">
                  <li><a href="#" class="fa fa-twitter"></a></li>
