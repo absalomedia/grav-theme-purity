@@ -5,9 +5,13 @@
 {% else %}
 {% set author =  page.header.taxonomy.author[0] %}
 {% endif %}
-{% if author %}
-{% set avatar = author|replace(' ', '-')|lower %}
-{% endif %}
+         {% if author %}
+         {% set avatar = "#{author|replace(' ', '-')|lower}.jpg" %}
+         {% if page.find('/themes/purity/images').media[avatar] is empty %}
+         {% set avatar = "avatar.jpg" %}        
+         {% endif %}
+         {% set avatar_image = "#{theme_url}/images/#{avatar}" %}
+         {% endif %}
 
   {% set collection = page.collection() %}
   {% set base_url = page.url %}
@@ -28,11 +32,14 @@
 
 {% for p in page.find('/blog').children.order('hits', 'desc').slice(0, 1) %}
                                 {% set bannerimage = p.media.images|first %}
+                                {% if bannerimage is empty %}
+                                {% set bannerimage = '/themes/purity/images/placeholder.jpg' %}                              
+                                {% endif %}
                                     <!-- Mini Post -->
                                   <section class="post">
                                        <header class="post-header">
                                               {% if author %}
-                                              <img class="post-avatar" alt="{{ author }}" height="48" width="48" src="{{ theme_url }}/images/{{avatar}}.jpg">
+                                              <img class="post-avatar" alt="{{ author }}" height="48" width="48" src="{{avatar_image}}">
                                               {% endif %}
                                               <h2 class="post-title"><a href="{{ p.url }}">{{ p.title }}</a></h2>
                                               <p class="post-meta">

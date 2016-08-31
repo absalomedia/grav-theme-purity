@@ -6,8 +6,13 @@
          {% set author =  page.header.taxonomy.author[0] %}
          {% endif %}
          {% if author %}
-         {% set avatar = author|replace(' ', '-')|lower %}
+         {% set avatar = "#{author|replace(' ', '-')|lower}.jpg" %}
+         {% if page.find('/themes/purity/images').media[avatar] is empty %}
+         {% set avatar = "avatar.jpg" %}        
          {% endif %}
+         {% set avatar_image = "#{theme_url}/images/#{avatar}" %}
+         {% endif %}
+         
     {% if site.share.facebook or site.share.twitter %}
     <script type="text/javascript">
     {% if site.share.twitter %}
@@ -24,7 +29,7 @@
     {% endif %}
 
                     <header class="post-header">
-                        <img class="post-avatar" alt="{{ page.header.author }}" height="48" width="48" src="{{ url('theme://images/avatar.jpg') }}">
+                        <img class="post-avatar" alt="{{ page.header.author }}" height="48" width="48" src="{{avatar_image}}">
 
                     {% if page.header.link %}
             <h2 class="post-title" itemprop="headline">

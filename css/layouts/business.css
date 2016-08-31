@@ -1,5 +1,46 @@
+ * -- BASE STYLES --
+ * Most of these are inherited from Base, but I want to change a few.
+ */
+body {
+    line-height: 1.7em;
+    color: #7f8c8d;
+    font-size: 13px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label {
+    color: #34495e;
+}
+
+.pure-img-responsive {
+    max-width: 100%;
+    height: auto;
+}
+
+/*
+ * -- LAYOUT STYLES --
+ * These are some useful classes which I will need
+ */
+.l-box {
+    padding: 1em;
+}
+
+.l-box-lrg {
+    padding: 2em;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.is-center {
+    text-align: center;
+}
+
+
 .banner {
-    background:url(http://placekitten.com/g/1600/1200) top center no-repeat fixed;
     display:block;
     height:400px;
 }
@@ -66,9 +107,15 @@
     text-transform: uppercase;
 }
 
-body > footer {
-    background: black;
+footer {
+    background: #111;
     color: white;
-    padding: 1em;
-    text-align: center;
+}
+
+footer ul {
+    list-style: none;
+}
+
+footer ul li {
+    display: inline-flex;
 }
