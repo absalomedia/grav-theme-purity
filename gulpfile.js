@@ -11,7 +11,6 @@ var gulp = require('gulp');
 var fs = require('fs');
 var merge = require('merge-stream');
 var $ = require('gulp-load-plugins')();
-var uniffe = require('./utils/uniffe.js');
 var del = require('del');
 var vinylPaths = require('vinyl-paths');
 var runSequence = require('run-sequence');
@@ -21,9 +20,12 @@ var reload = browserSync.reload;
 var path = require('path');
 var pkg = require('./package.json');
 var through = require('through2');
-var swig = require('swig');
+var autoprefixer = require('autoprefixer');
+var grids = require('rework-pure-grids');
+var prefixer = require('gulp-prefix-css');
 
-var AUTOPREFIXER_BROWSERS = [
+
+const AUTOPREFIXER_BROWSERS = [
   'ie >= 10',
   'ie_mob >= 10',
   'ff >= 30',
@@ -35,7 +37,72 @@ var AUTOPREFIXER_BROWSERS = [
   'bb >= 10'
 ];
 
+var cssFolders = [
+  'scss/pure/src/base/css/*.css', 
+  'scss/pure/src/buttons/css/*.css',
+  'scss/pure/src/forms/css/*.css',
+  'scss/pure/src/grids/css/*.css',
+  'scss/pure/src/menus/css/*.css',
+  'scss/pure/src/tables/css/*.css'
+];
+
+var pureUnits = [5, 7, 24];
+
+
 // ***** Development tasks ****** //
+
+// Copy patches
+gulp.task('patch:grid', function() {
+  return gulp.src(['js/rework/**/*']).pipe(gulp.dest('node_modules/rework-pure-grids'));
+});
+
+gulp.task('patch:sass', function() {
+  return gulp.src(['scss/patch/**/*']).pipe(gulp.dest('scss/pure/src/'));
+});
+
+// Lint CSS
+gulp.task('csslint', function() {
+  gulp.src(cssFolders)
+    .pipe($.csslint('scss/pure/.csslintrc'))
+    .pipe($.csslint.formatter());
+});
+
+// Prefix base pure CSS
+gulp.task('prefix', function() {
+  return gulp.src('scss/pure/src/base/css/base.css')
+    .pipe(prefixer('.pure'))
+    .pipe(gulp.dest('build/base/'));
+});
+
+
+// Grids tasks
+gulp.task('grids:default', function() {
+  return gulp.src('scss/grids-units.css')
+    .pipe($.rework(grids.units(pureUnits))).
+    pipe(gulp.dest('build/grids'));
+});
+
+gulp.task('grids:responsive', function() {
+  return gulp.src('scss/grids-responsive.css')
+    .pipe($.rework(grids.units(pureUnits,{
+      mediaQueries: {
+                    sm: 'screen and (min-width: 35.5em)',   // 568px
+                    md: 'screen and (min-width: 48em)',     // 768px
+                    lg: 'screen and (min-width: 64em)',     // 1024px
+                    xl: 'screen and (min-width: 80em)'      // 1280px
+    }
+  }))).pipe(gulp.dest('build/grids'));
+});
+
+// PostCSS
+gulp.task('postcss', function () {
+    var processors = [
+        autoprefixer({browsers: ['last 2 versions', 'ie >= 8', 'iOS >= 6', 'Android >= 4']}),
+    ];
+    return gulp.src('build/**/*.css')
+        .pipe($.postcss(processors))
+        .pipe(gulp.dest('build'));
+});
 
 // Lint JavaScript
 gulp.task('jshint', function() {
@@ -85,7 +152,7 @@ gulp.task('styles', function() {
 
 
 // Clean Output Directory
-gulp.task('clean', del.bind(null, ['dist', '.publish'], {dot: true}));
+gulp.task('clean', del.bind(null, ['build', '.publish'], {dot: true}));
 
 // Copy package manger and LICENSE files to dist
 gulp.task('metadata', function() {
@@ -96,106 +163,42 @@ gulp.task('metadata', function() {
 // Build Production Files, the Default Task
 gulp.task('default', ['clean'], function(cb) {
   runSequence(
+    ['development'],
     ['styles'],
     cb);
 });
 
+// Patch tasks
+gulp.task('patch', function(cb) {
+  runSequence(
+    ['patch:sass', 'patch:grid'],
+    cb);
+});
 
-// ***** Landing page tasks ***** //
+// Grids tasks
+gulp.task('grids', function(cb) {
+  runSequence(
+    ['grids:default', 'grids:responsive'],
+    cb);
+});
 
-/**
- * Site metadata for use with templates.
- * @type {Object}
- */
-var site = {};
 
-/**
- * Generates an HTML file based on a template and file metadata.
- */
-function applyTemplate() {
-  return through.obj(function(file, enc, cb) {
-    var data = {
-      site: site,
-      page: file.page,
-      content: file.contents.toString()
-    };
-
-    var templateFile = path.join(
-        __dirname, 'docs', '_templates', file.page.layout + '.html');
-    var tpl = swig.compileFile(templateFile, {cache: false});
-    file.contents = new Buffer(tpl(data), 'utf8');
-    this.push(file);
-    cb();
-  });
-}
-
+// Build Development Tasks
+gulp.task('development', ['clean'], function(cb) {
+  runSequence(
+    ['patch'],
+    ['csslint'],
+    ['prefix'],
+    ['grids'],
+    ['postcss'],
+    cb);
+});
 
 /**
  * Defines the list of resources to watch for changes.
  */
 function watch() {
   gulp.watch(['scss/**/*.{scss,css}'],
-    ['styles', 'styles-grid', 'styletemplates', reload]);
+    ['styles', reload]);
 }
 
-/**
- * Serves the landing page from "out" directory.
- */
-gulp.task('serve:browsersync', function() {
-  browserSync({
-    notify: false,
-    server: {
-      baseDir: ['dist']
-    }
-  });
-
-  watch();
-});
-
-gulp.task('serve', function() {
-  $.connect.server({
-    root: 'dist',
-    port: 5000,
-    livereload: true
-  });
-
-  watch();
-
-  gulp.src('./dist/index.html')
-    .pipe($.open('', {url: 'http://localhost:5000'}));
-});
-
-// Generate release archive containing just JS, CSS, Source Map deps
-gulp.task('zip:pure', function() {
-  return gulp.src(['dist/pure?(.min)@(.js|.css)?(.map)', 'LICENSE', 'bower.json', 'package.json'])
-    .pipe($.zip('pure.zip'))
-    .pipe(gulp.dest('dist'));
-});
-
-// Generate release archive containing the library, templates and assets
-// for templates. Note that it is intentional for some templates to include
-// a customised version of the material.min.css file for their own needs.
-// Others (e.g the Android template) simply use the default built version of
-// the library.
-
-// Define a filter containing only the build assets we want to pluck from the
-// `dist` stream. This enables us to preserve the correct final dir structure,
-// which was not occurring when simply using `gulp.src` in `zip:templates`
-
-var fileFilter = $.filter([
-  'material?(.min)@(.js|.css)?(.map)',
-  'templates/**/*.*',
-  'assets/**/*.*',
-  'LICENSE',
-  'bower.json',
-  'package.json']);
-
-gulp.task('zip', ['zip:pure']);
-
-gulp.task('genCodeFiles', function() {
-  return gulp.src(['dist/pure.*@(js|css)?(.map)', 'dist/pure.zip', 'dist/mdl-templates.zip'],
-      {read: false})
-    .pipe($.tap(function(file, t) {
-      codeFiles += ' dist/' + path.basename(file.path);
-    }));
-});

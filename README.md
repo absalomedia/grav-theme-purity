@@ -42,9 +42,8 @@ Alternate layout and menu styling is being developed based on the core layouts d
 
 # Customising core CSS
 
-Purity runs a combination of Grunt & Gulp to build the latest bleeding edge edition of Yahoo's [Pure CSS](http://www.purecss.io). The process is fairly simple. Once Node, Gulp & Grunt have been installed inside /your/site/grav/user/themes/purity, run:
+Purity runs Gulp to build the latest bleeding edge edition of Yahoo's [Pure CSS](http://www.purecss.io). The process is fairly simple. Once Node & Gulp have been installed inside /your/site/grav/user/themes/purity, run:
 
-	grunt
 	gulp
 
 This will build a brand new pure.min.css file inside /your/site/grav/user/themes/purity/css
