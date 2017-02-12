@@ -44,6 +44,10 @@ Alternate layout and menu styling is being developed based on the core layouts d
 
 Purity runs Gulp to build the latest bleeding edge edition of Yahoo's [Pure CSS](http://www.purecss.io). The process is fairly simple. Once Node & Gulp have been installed inside /your/site/grav/user/themes/purity, run:
 
+	git submodule update --init --recursive
+
+This pulls the latest referenced edition of the Pure CSS repository. Then run:
+
 	gulp
 
 This will build a brand new pure.min.css file inside /your/site/grav/user/themes/purity/css
