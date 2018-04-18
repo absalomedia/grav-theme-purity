@@ -1,5 +1,7 @@
 # Purity Theme for Grav
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/absalomedia/grav-theme-purity.svg)](https://greenkeeper.io/)
+
 ![Purity](screenshot.jpg)
 
 Purity: [Pure CSS](http://www.purecss.io) from [Yahoo](http://www.yahoo.com) into Grav, with customised options for menu design & control
