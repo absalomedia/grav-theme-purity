@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 {% set theme_config = attribute(config.themes, config.system.pages.theme) %}
-<!--[if IE 8 ]><html class="no-js ie ie8" lang="{{ grav.language.getActive ?: theme_config.default_lang }}">> <![endif]-->
 <!--[if IE 9 ]><html class="no-js ie ie9" lang="{{ grav.language.getActive ?: theme_config.default_lang }}">> <![endif]-->
-<!--[if (gte IE 8)|!(IE)]><!--><html class="no-js" lang="{{ grav.language.getActive ?: theme_config.default_lang }}"> <!--<![endif]-->
 <head>
     {% block head %}
         <meta charset="utf-8" />
@@ -34,12 +32,12 @@
             {% do assets.addCss('theme://css/font-awesome.min.css') %}
             {% do assets.addCss('theme://css/fonts.css') %}
         {% endblock %}
-        {{ assets.css() }}
+        {{ assets.css()|raw }}
 
         {% block javascripts %}
             {% do assets.add('jquery',101) %}
         {% endblock %}
-        {{ assets.js() }}
+        {{ assets.js()|raw }}
 
 
         <!--[if lte IE 8]><script src="{{ url('theme://js/html5shiv.js') }}"></script><![endif]-->
@@ -164,7 +162,7 @@ $(document).ready(function($){
 {% endif %}
 
     {% block bottom %}
-        {{ assets.js('bottom') }}
+        {{ assets.js('bottom')|raw }}
 
     {% if config.themes.purity.layout == '1' %}
         {% if config.themes.purity.menu == '0' %}
